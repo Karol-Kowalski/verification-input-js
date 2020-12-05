@@ -14,8 +14,12 @@ function handlePaste(e) {
     const paste = e.clipboardData.getData('text')
 
     inputs.forEach((input, i) => {
-        input.value = paste[i]
+        input.value = paste[i] || ''
     })
+
+    if(paste.length == inputs.length) {
+        form.submit()
+    }
 }
 
 
